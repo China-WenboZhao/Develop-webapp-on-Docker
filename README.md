@@ -11,7 +11,7 @@ Each solutions contains several projects(which are microservices from the view o
 ### **MovieWebsite(v1.0)**  
 MovieWebsite(v1.0) is an example of a movie list, which you can create, view details, delete, update movies.
 
-### **MovieWebsite(V2.0)**  
+### **MovieWebsite(v2.0)**  
 MovieWebsite(V2.0) is added with the Authentication function, Using Asp.net core Identy & IdentityServer4 frameworks, you can easily register, log in and log out. **Here we will also discuss about the cases when functions/microservices/projects are in different solutions or different hosts.**
 
 ### **MovieWebsite(v3.0)**  
