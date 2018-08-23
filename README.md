@@ -18,6 +18,6 @@ MovieWebsite(V2.0) is added with the Authentication function, Using Asp.net core
 MovieWebsite(v3.0)  appends the basket function. You must be authenticated before you are authorized to access your own basket. You can add movies to the basket or delete movies from basket. However, movie infos will not changed accordingly when its infos are changed in the list.
 
 ### **MovieWebsite(v4.0)**    
-MovieWebsite(v4.0) use broadcast-subscribe model(EventBus framework from ![https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/BuildingBlocks/EventBus](https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/BuildingBlocks/EventBus)) implemented by RabbitMQ to address the synchronization of infos changomg in list and changed. However, In some exceptional cases, the database of the list has been changed whereas the changed in the basket fails. We will never know that bad situation happens because we don't have any record.
+MovieWebsite(v4.0) use broadcast-subscribe model(EventBus framework from [https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/BuildingBlocks/EventBus](https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/BuildingBlocks/EventBus) ) implemented by RabbitMQ to address the synchronization of infos changomg in list and changed. However, In some exceptional cases, the database of the list has been changed whereas the changed in the basket fails. We will never know that bad situation happens because we don't have any record.
 
 
