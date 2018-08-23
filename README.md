@@ -14,7 +14,7 @@ MovieWebsite(v1.0) is an example of a movie list, which you can create, view det
 ##* **MovieWebsite(V2.0)**  
 MovieWebsite(V2.0) is added with the Authentication function, Using Asp.net core Identy & IdentityServer4 frameworks, you can easily register, log in and log out. **Here we will also discuss about the cases when functions/microservices/projects are in different solutions or different hosts.**
 
-##* **MovieWebsite(v3.0)**  
+*## **MovieWebsite(v3.0)**  
 MovieWebsite(v3.0)  appends the basket function. You must be authenticated before you are authorized to access your own basket. You can add movies to the basket or delete movies from basket. However, movie infos will not changed accordingly when its infos are changed in the list.
 
 ##* **MovieWebsite(v3.0)**    
