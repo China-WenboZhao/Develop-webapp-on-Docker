@@ -1,1 +1,2 @@
-As mentioned in [https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/README.md](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/README.md), you will meet an error saying ''
+As mentioned in [https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/README.md](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/README.md), you will meet an error saying 'value conversion not supported' no matter using 
+'MySql.Data.EntityFrameworkCore' framework or 'Pomelo.EntityFrameworkCore.MySql'. because current version MySQL provider version not support 'value conversion'. There is no good method to fix by now instead of using SqlServer.
