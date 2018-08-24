@@ -1,3 +1,3 @@
 In this solution, we add Authentication, **but here is one more problem remained:**  
-
+In [WebMVC/Startup.cs](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/MovieWebsite(v2.0)/WebMVC/Startup.cs), you can see 'options.Authority=...'. Here we set the IdentityServer path, but this path is used both for redirect and containers communications. If we want to remain redirect.  the path should be like http:// localhost:5001
 for more details, go to [https://github.com/aspnet/Security/issues/1175#issuecomment-293376825](https://github.com/aspnet/Security/issues/1175#issuecomment-293376825).
