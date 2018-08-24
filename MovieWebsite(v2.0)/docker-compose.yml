@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+  moviesservice:
+    image: moviesservice
+    container_name: moviesservice
+    ports:
+      - "5000:5000"
+    build:
+      context: ./MoviesService
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    restart: always
+
+  webmvc:
+    image: webmvc   
+    ports:
+      - "5003:5003"
+    build:
+      context: ./WebMVC
+      dockerfile: Dockerfile
+    restart: always
+
+  identityserver:
+    image: identityserver
+    container_name: identityserver
+    ports:
+      - "5001:5001"
+    build:
+      context: ./IdentityServer
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql3
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    ports: 
+      - "3307:3306"
+    environment:
+      MYSQL_USER: zwb
+      MYSQL_PASSWORD: zwb
+      MYSQL_DATABASE: TestDataBase
+      #MYSQL_ROOT_HOST: 172.*.*.*
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_ONLINE_PASSWORD: 1
+    volumes:
+      - ./dbdata:/var/lib/mysql
+
+  mysql3:
+    image: mysql:5.7
+    ports: 
+      - "3306:3306"
+    environment:
+      MYSQL_USER: zwb
+      MYSQL_PASSWORD: zwb
+      MYSQL_DATABASE: Authentication
+      #MYSQL_ROOT_HOST: 172.*.*.*
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_ONLINE_PASSWORD: 1
+    volumes:
+      - ./dbdata:/var/lib/mysql3
+    

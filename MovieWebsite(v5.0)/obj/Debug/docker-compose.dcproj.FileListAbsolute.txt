@@ -1,0 +1,5 @@
+F:\Development\MovieWebsite\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\MovieWebsite\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+F:\Development\MovieWebsite(v3.0)\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+F:\Development\MovieWebsite(v4.0)\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+F:\Development\MovieWebsite(v5.0)\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

@@ -1,0 +1,17 @@
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right">
+
+        <li><a asp-area="" asp-controller="Home" asp-action="Profile" title="Manage">Hello @User.Claims.Where(c => c.Type == "name").First().Value !</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Logout" title="Manage">Logout</a></li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Home" asp-action="Register">Register</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Login">Log in</a></li>
+    </ul>
+}

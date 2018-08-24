@@ -1,0 +1,89 @@
+services:
+  basketservice:
+    build:
+      context: F:\Development\MovieWebsite(v4.0)\BasketService
+      dockerfile: Dockerfile
+    container_name: basketservice
+    depends_on:
+    - redis
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: basketservice
+    ports:
+    - 80/tcp
+    - 5002:5002/tcp
+    restart: always
+  identityserver:
+    build:
+      context: F:\Development\MovieWebsite(v4.0)\IdentityServer
+      dockerfile: Dockerfile
+    container_name: identityserver
+    depends_on:
+    - mysql3
+    image: identityserver
+    ports:
+    - 5001:5001/tcp
+    restart: always
+  moviesservice:
+    build:
+      context: F:\Development\MovieWebsite(v4.0)\MoviesService
+      dockerfile: Dockerfile
+    container_name: moviesservice
+    depends_on:
+    - mysql
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: moviesservice
+    ports:
+    - 80/tcp
+    - 5000:5000/tcp
+    restart: always
+  mysql:
+    environment:
+      MYSQL_DATABASE: TestDataBase
+      MYSQL_ONLINE_PASSWORD: 1
+      MYSQL_PASSWORD: zwb
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: zwb
+    image: mysql:5.7
+    ports:
+    - 3307:3306/tcp
+    volumes:
+    - F:\Development\MovieWebsite(v4.0)\dbdata:/var/lib/mysql:rw
+  mysql3:
+    environment:
+      MYSQL_DATABASE: Authentication
+      MYSQL_ONLINE_PASSWORD: 1
+      MYSQL_PASSWORD: zwb
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: zwb
+    image: mysql:5.7
+    ports:
+    - 3306:3306/tcp
+    volumes:
+    - F:\Development\MovieWebsite(v4.0)\dbdata:/var/lib/mysql3:rw
+  rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_PASS: zwb
+      RABBITMQ_DEFAULT_USER: zwb
+    expose:
+    - '15672'
+    - '5672'
+    hostname: rabbitmq
+    image: rabbitmq
+  redis:
+    expose:
+    - '6379'
+    image: redis
+  webmvc:
+    build:
+      context: F:\Development\MovieWebsite(v4.0)\WebMVC
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: webmvc
+    ports:
+    - 80/tcp
+    - 5003:5003/tcp
+    restart: always
+version: '3.0'

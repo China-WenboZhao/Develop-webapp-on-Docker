@@ -1,0 +1,36 @@
+networks:
+  net1: {}
+services:
+  moviesservice:
+    build:
+      context: F:\Development\MovieWebsite\MoviesService
+      dockerfile: Dockerfile
+    container_name: moviesservice
+    depends_on:
+    - mysql
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: moviesservice
+    networks:
+      net1: null
+    ports:
+    - target: 80
+    - published: 5000
+      target: 5000
+    restart: always
+  mysql:
+    environment:
+      MYSQL_DATABASE: TestDataBase
+      MYSQL_ONLINE_PASSWORD: 1
+      MYSQL_PASSWORD: zwb
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_ROOT_HOST: 172.*.*.*
+      MYSQL_USER: zwb
+    image: mysql:5.7
+    ports:
+    - published: 3306
+      target: 3306
+    restart: always
+    volumes:
+    - F:\Development\MovieWebsite\dbdata:/var/lib/mysql:rw
+version: '3.4'

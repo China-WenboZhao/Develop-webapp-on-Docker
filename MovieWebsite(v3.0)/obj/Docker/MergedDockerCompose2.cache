@@ -1,0 +1,149 @@
+services:
+  basketservice:
+    build:
+      args:
+        source: obj/Docker/empty/
+      context: F:\Development\MovieWebsite(v3.0)\BasketService
+      dockerfile: Dockerfile
+    container_name: basketservice
+    depends_on:
+    - redis
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: basketservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/BasketService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - 80/tcp
+    - 5002:5002/tcp
+    restart: always
+    volumes:
+    - F:\Development\MovieWebsite(v3.0)\BasketService:/app:rw
+    - C:\Users\Admin\vsdbg:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Admin\.nuget\packages:/root/.nuget/packages:ro
+  identityserver:
+    build:
+      args:
+        source: obj/Docker/empty/
+      context: F:\Development\MovieWebsite(v3.0)\IdentityServer
+      dockerfile: Dockerfile
+    container_name: identityserver
+    depends_on:
+    - mysql3
+    entrypoint: tail -f /dev/null
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: identityserver:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/IdentityServer.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - 5001:5001/tcp
+    restart: always
+    volumes:
+    - F:\Development\MovieWebsite(v3.0)\IdentityServer:/app:rw
+    - C:\Users\Admin\vsdbg:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Admin\.nuget\packages:/root/.nuget/packages:ro
+  moviesservice:
+    build:
+      args:
+        source: obj/Docker/empty/
+      context: F:\Development\MovieWebsite(v3.0)\MoviesService
+      dockerfile: Dockerfile
+    container_name: moviesservice
+    depends_on:
+    - mysql
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: moviesservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/MoviesService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - 80/tcp
+    - 5000:5000/tcp
+    restart: always
+    volumes:
+    - F:\Development\MovieWebsite(v3.0)\MoviesService:/app:rw
+    - C:\Users\Admin\vsdbg:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Admin\.nuget\packages:/root/.nuget/packages:ro
+  mysql:
+    environment:
+      MYSQL_DATABASE: TestDataBase
+      MYSQL_ONLINE_PASSWORD: 1
+      MYSQL_PASSWORD: zwb
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: zwb
+    image: mysql:5.7
+    ports:
+    - 3307:3306/tcp
+    volumes:
+    - F:\Development\MovieWebsite(v3.0)\dbdata:/var/lib/mysql:rw
+  mysql3:
+    environment:
+      MYSQL_DATABASE: Authentication
+      MYSQL_ONLINE_PASSWORD: 1
+      MYSQL_PASSWORD: zwb
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: zwb
+    image: mysql:5.7
+    ports:
+    - 3306:3306/tcp
+    volumes:
+    - F:\Development\MovieWebsite(v3.0)\dbdata:/var/lib/mysql3:rw
+  redis:
+    expose:
+    - '6379'
+    image: redis
+  webmvc:
+    build:
+      args:
+        source: obj/Docker/empty/
+      context: F:\Development\MovieWebsite(v3.0)\WebMVC
+      dockerfile: Dockerfile
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: webmvc:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/WebMVC.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - 80/tcp
+    - 5003:5003/tcp
+    restart: always
+    volumes:
+    - F:\Development\MovieWebsite(v3.0)\WebMVC:/app:rw
+    - C:\Users\Admin\vsdbg:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Admin\.nuget\packages:/root/.nuget/packages:ro
+version: '3.0'
