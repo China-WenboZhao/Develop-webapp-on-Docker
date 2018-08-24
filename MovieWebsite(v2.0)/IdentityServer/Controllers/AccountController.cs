@@ -241,6 +241,7 @@ namespace IdentityServer.Controllers
             return View(model);
         }
 
+        // original logout method
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
@@ -249,6 +250,7 @@ namespace IdentityServer.Controllers
             _logger.LogInformation("User logged out.");
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+        // logout method add by myself
         [HttpGet]
         public async Task<IActionResult> Logout(string logoutid)
         {
