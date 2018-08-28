@@ -3,10 +3,9 @@
 
 注意，所有的例子都部署运行在我们的本地主机和本地Docker上.  所有对于微服务的访问都是通过  http:// localhost:<port\>/\<controller name\>/...  or http://\<microservices name\>:\<port\>/\<controller name\>/... 的形式来访问的。因此，很多问题可以通过使用公网ip或域名的方式轻松解决。
 
-This repository contains five solutions, each one is added with new functiion blocks based on the former solutions.
-All solutions use .net core 2.0 & EF core 2.0/2.1 as development environment.
+这个仓库一共包括5个解决方案，每个解决方案都在上一个的基础上添加了新的功能板块。所以的解决方案都是在e .net core 2.0 & EF core 2.0/2.1 的环境中进行开发的。
 
-Each solutions contains several projects(which are microservices from the view of Docker). **Before you run or view each solution, don't forget to browse Readme.md in it for matters and attention.**
+Each solution contains several projects(which are microservices from the view of Docker). **Before you run or view each solution, don't forget to browse Readme.md in it for matters and attention.**
 
 ### **MovieWebsite(v1.0)**  
 MovieWebsite(v1.0) is an example of a movie list, which you can create, view details, delete, update movies. **Here we will also discuss about the cases when functions/microservices/projects are in different solutions or different hosts.**
