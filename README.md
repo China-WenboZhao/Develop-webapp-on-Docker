@@ -9,7 +9,7 @@ All solutions use .net core 2.0 & EF core 2.0/2.1 as development environment.
 Each solution contains several projects(which are microservices from the view of Docker). **Before you run or view each solution, don't forget to browse Readme.md in it for matters and attention.**
 
 ### **MovieWebsite(v1.0)**  
-MovieWebsite(v1.0) is an example of a movie list, which you can create, view details, delete, update movies. **Here we will also discuss about the cases when functions/microservices/projects are in different solutions or different hosts.**
+MovieWebsite(v1.0) is an example of a movie list, which you can create, view details, delete, update movies. **Here we will also discuss about the cases when functions/microservices/projects are in different solutions（defined in different docker-compose.yml） or different hosts.**
 
 ### **MovieWebsite(v2.0)**  
 MovieWebsite(V2.0) is added with the Authentication function, Using Asp.net core Identy & IdentityServer4 frameworks, you can easily register, log in and log out.
