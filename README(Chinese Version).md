@@ -5,10 +5,10 @@
 
 这个仓库一共包括5个解决方案，每个解决方案都在上一个的基础上添加了新的功能板块。所以的解决方案都是在e .net core 2.0 & EF core 2.0/2.1 的环境中进行开发的。
 
-Each solution contains several projects(which are microservices from the view of Docker). **Before you run or view each solution, don't forget to browse Readme.md in it for matters and attention.**
+每个解决方案都包含了几个项目（对应docker中的微服务）。**在你学习，下载，运行每个解决方案前, 不要忘记先查看里面的readme文件，里面提到了一些可能遇到的问题。**
 
 ### **MovieWebsite(v1.0)**  
-MovieWebsite(v1.0) is an example of a movie list, which you can create, view details, delete, update movies. **Here we will also discuss about the cases when functions/microservices/projects are in different solutions or different hosts.**
+MovieWebsite(v1.0)是一个电影列表的例子，你也可以新建，查看细节，删除，更新电影。**在这个项目的Readme.md中我们也会讨论当微服务们处在不同解决方案（不同docker-compose.yml文件定义）或不同主机上的情况。**
 
 ### **MovieWebsite(v2.0)**  
 MovieWebsite(V2.0) is added with the Authentication function, Using Asp.net core Identy & IdentityServer4 frameworks, you can easily register, log in and log out.
