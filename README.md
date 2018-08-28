@@ -6,7 +6,7 @@ All examples are only deployed on our local host, which means all microservices 
 This repository contains five solutions, each one is added with new functiion blocks based on the former solutions.
 All solutions use .net core 2.0 & EF core 2.0/2.1 as development environment.
 
-Each solutions contains several projects(which are microservices from the view of Docker). **Before you run or view each solution, don't forget to browse Readme.md in it for matters and attention.**
+Each solution contains several projects(which are microservices from the view of Docker). **Before you run or view each solution, don't forget to browse Readme.md in it for matters and attention.**
 
 ### **MovieWebsite(v1.0)**  
 MovieWebsite(v1.0) is an example of a movie list, which you can create, view details, delete, update movies. **Here we will also discuss about the cases when functions/microservices/projects are in different solutions or different hosts.**
