@@ -11,13 +11,13 @@
 MovieWebsite(v1.0)是一个电影列表的例子，你也可以新建，查看细节，删除，更新电影。**在这个项目的Readme.md中我们也会讨论当微服务们处在不同解决方案（不同docker-compose.yml文件定义）或不同主机上的情况。**
 
 ### **MovieWebsite(v2.0)**  
-MovieWebsite(V2.0) is added with the Authentication function, Using Asp.net core Identy & IdentityServer4 frameworks, you can easily register, log in and log out.
+MovieWebsite(V2.0) 添加了认证功能,使用 Asp.net core Identy 和 IdentityServer4 框架。 通过这两个框架，你可以轻松的注册，登陆和登出。
 
 ### **MovieWebsite(v3.0)**  
-MovieWebsite(v3.0)  appends the basket function. You must be authenticated before you are authorized to access your own basket. You can add movies to the basket or delete movies from basket. However, movie infos will not changed accordingly when its infos are changed in the list.
+MovieWebsite(v3.0) 添加了购物车功能。在你获取访问你自己的购物车权限之前你必须先进行登陆。你可以把电影加入购物车或者从购物车中除去。然而，当列表中的电影信息改变时购物车中的电影信息不会相应的进行改变。
 
 ### **MovieWebsite(v4.0)**    
-MovieWebsite(v4.0) use broadcast-subscribe model(EventBus framework from [https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/BuildingBlocks/EventBus]( https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/BuildingBlocks/EventBus) ) implemented by RabbitMQ to address the synchronization of infos changing in list and basket. In a nutshell, when you changed info of a movie or delete a movie in the list, the corresponding movie in the basket will also be changed or deleted.  However, In some exceptional cases, the database of the list has been changed whereas the changed in the basket fails. We will never know that bad situation happens because we don't have any record.
+MovieWebsite(v4.0) 使用了广播-订阅模式（基于RabbitMQ实现的EventBus框架，链接：[https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/BuildingBlocks/EventBus]( https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/BuildingBlocks/EventBus) 。此模式很好的解决了列表中和购物车中电影信息更改的同步性。当你在列表中修改电影信息或者删除一个电影的时候，购物车中的电影也会进行相应改变。然而，在某些情况下，当存储电影列表的数据库已经改变，购物车电影的数据库可能更新失败。我们并不会获取到这些情况，因为我们没有做任何的记录和补救。
 
 ### **MovieWebsite(v5.0)**  
 MovieWebsite(v5.0) add a table that save the status of the infos changing message(including ready to publish, published). Database operations of list and status recording are viewed as one transaction, which prevents the inconformity of data and status. If the database of basket failed to update, the transaction will be rolled back to ensure the consistency. **By now, we are in a dilemma and can't solved one problem, so this part is to be continued.(see [here](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/MovieWebsite(v5.0)/Readme.md
