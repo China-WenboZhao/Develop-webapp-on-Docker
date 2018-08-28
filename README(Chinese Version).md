@@ -1,5 +1,5 @@
 # Develop-webapp-on-Docker
-**标签:** 微服务, 数据存储, 安全认证及授权, 微服务间的同步&amp；异步通信.
+**标签:** 微服务, 数据存储, 安全认证及授权, 微服务间的同步&amp异步通信.
 
 注意，所有的例子都部署运行在我们的本地主机和本地Docker上.  所有对于微服务的访问都是通过  http:// localhost:<port\>/\<controller name\>/...  or http://\<microservices name\>:\<port\>/\<controller name\>/... 的形式来访问的。因此，很多问题可以通过使用公网ip或域名的方式轻松解决。
 
