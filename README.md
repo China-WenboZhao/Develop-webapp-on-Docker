@@ -24,5 +24,5 @@ MovieWebsite(v4.0) use publish-subscribe model(EventBus framework from [https://
 MovieWebsite(v5.0) add a table that save the status of the infos changing message(including ready to publish, published). Database operations of list and status recording are viewed as one transaction, which prevents the inconformity of data and status. If the database of basket failed to update, the transaction will be rolled back to ensure the consistency. **By now, we are in a dilemma and can't solved one problem, so this part is to be continued.(see [here](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/MovieWebsite(v5.0)/Readme.md
 ) for details)**
 
-### **NOTE: there are also some attached tutorials which are wirtten by Chinese. If you are english user, just ignore it.**
+#### **NOTE: There are also some attached tutorials which are wirtten by Chinese. If you are english user, just ignore it.**
 
