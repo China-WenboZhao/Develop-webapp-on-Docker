@@ -1,4 +1,4 @@
-1. Although The IdentityServer is generated automatically when we choose 'Idividual User Accounts' when create new project, we still need to add a '`Logout(string logoutid)`' method(see [here](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/MovieWebsite(v2.0)/IdentityServer/Controllers/AccountController.cs)) because the IdentityServer redirect to http://identityserver:5001/Accout/Logout(logoutid) when we log out from the client. 
+1. Although The Logout() mehtod is generated automatically when we choose 'Idividual User Accounts' when create new project, we still need to add a '`Logout(string logoutid)`' method(see [here](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/MovieWebsite(v2.0)/IdentityServer/Controllers/AccountController.cs)) because the IdentityServer redirect to http://identityserver:5001/Accout/Logout(logoutid) when we log out from the client. 
 
 
 2. In this solution, we add Authentication, **but here is one more problem remained:**  
