@@ -1,4 +1,4 @@
-1. 尽管 Logout() 方法会在我们创建项目并选择‘个人用户账户’时自动创建，我们仍然需要添加一个 i '`Logout(string logoutid)`' 方法(代码请看 [here](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/MovieWebsite(v2.0)/IdentityServer/Controllers/AccountController.cs)) 因为identityServer4认证服务器在我们从客户端登出时会重定向到http://identityserver:5001/Accout/Logout(logoutid)
+1. 尽管 Logout() 方法会在我们创建项目并选择‘个人用户账户’时自动创建，我们仍然需要添加一个'`Logout(string logoutid)`' 方法(代码请看 [here](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/MovieWebsite(v2.0)/IdentityServer/Controllers/AccountController.cs)) 因为identityServer4认证服务器在我们从客户端登出时会重定向到http://identityserver:5001/Accout/Logout(logoutid)
 
 
 2. 在这个结局方案中，我们添加了认证板块，**但是这里仍有一个问题残余：**  
