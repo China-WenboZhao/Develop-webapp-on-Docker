@@ -1,2 +1,5 @@
 1. 在此解决方案中，当我们使用 'MySql.Data.EntityFrameworkCore' 框架或是 'Pomelo.EntityFrameworkCore.MySql'框架时，你会遇到以下的报错 'value conversion not supported'。 现在，解决的方法是使用'Pomelo.EntityFrameworkCore.MySql(2.1.0-rc1-final)' 来支持 value conversion。  
-2.
+2. 我们有两种方式来保存'IntegrationEventLog'表。一种方式是将它和电影列表存储电影的数据库存储在一个数据库中。另外一种是将其存储在一个新建的数据库中。由于'EventLog'电影信息必须保证一致性，我们使用事务来保证数据库更新的原子性和一致性。
+
+
+2. We have two schemes to save the 'IntegrationEventLog'. One is to save it in the same database with movies. The other is to create a new database. As the EventLog and the movies have to change simultaneously, we use transaction to ensure . However, EF core 2.1 doesn't support distributed transaction. We have to use the first scheme. In the first scheme, we need to intialize two tables in one database through '`DBContext.Database.EnsureCreated()`' or '`Migratecontext`'. For database migration is complex in docker, we choose to use '`DBContext.Database.EnsureCreated()`'. Here is the dilemma, we can't initializw two tables when ensuring onedatabase created. In other words, no matter how many times executing '`DBContext.Database.EnsureCreated()`', the aiming Object is the database instead of the tables. We can only initialize tables corresponding to the first context. **By now, we are in a dilemma and can't solved one problem, so this part is to be continued.(see [here]() for details)**
