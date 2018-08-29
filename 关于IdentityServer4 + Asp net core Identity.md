@@ -18,6 +18,6 @@
 `await HttpContext.SignOutAsync("oidc");`  
 ` }`  
 登出时客户端需要写上面的两句代码，第一句清除客户端cookie，第二句跳转至服务器进行登出。然后第二句跳转的函数虽然是Logout，但是却会带上string logoutid的参数。然而在Asp.net core identity 框架中不存在带参数的logout函数，需要自己添加。  
- ![图片1.png](.attachments/图片1-7c7276d4-4766-438f-ada5-542378fcd54f.png)
+ ![图片1.png](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/图片1.png)
 
 
