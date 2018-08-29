@@ -1,4 +1,4 @@
-![图片2.png](.attachments/图片2-04229592-8bd6-4c80-8045-44ea3f29d89d.png)
+![图片2.png](https://github.com/China-WenboZhao/Develop-webapp-on-Docker/blob/master/图片2.png)
 
 
 **Connection:** RabbitMQ Client 到Server的连接.  
