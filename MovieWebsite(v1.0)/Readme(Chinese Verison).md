@@ -5,3 +5,6 @@
 然而，当微服务定义在不同的docker-compose.yml文件中但是处于同一台主机时，我们可以通过自定义网络的形式来访问容器。
 当位于不同docker-compose.yml文件中的容器位于同一网络环境中时，他们之间就可以访问了。
 要做到以上我们有两步需要完成：
+(1). 在docker CLI中运行 '`docker network create  --attachable net1`' 命令.  
+(2). 在所有的docker-compose.yml文件中设置容器属于'net1'(你也可以创先一个单独的文件来专门配置网络)。
+当容器部署在不同主机上的时候，我们就需要首先配置swarn/k8s集群，而后配overlay network来使容器们通信。更多细节参考 [https://docs.docker.com/network/overlay/](https://docs.docker.com/network/overlay/) and [https://docs.docker.com/network/network-tutorial-overlay/](https://docs.docker.com/network/network-tutorial-overlay/).
