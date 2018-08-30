@@ -98,8 +98,7 @@ http://moviesservice:5000/MoviesService
 需要注意的是，在早先的docker版本中，想要实现容器间的访问还需要在docker-compose.yml中加上link(定义在同一个docker-compose中的其他服务）或者external_link(定义在不同docker-compose中的其他服务)，但是新版本Docker已经能自动找到路径，无需此操作，故不再赘述。
 - 然而，当微服务定义在不同的docker-compose.yml文件中但是处于同一台主机时，我们可以通过自定义网络的形式来访问容器。只要配置不同docker-compose.yml文件中的容器位于同一网络环境中时，他们之间就可以访问了。要做到以上我们有两步需要完成：
 (1). 在docker CLI中运行 '`docker network create  --attachable net1`' 命令.  
-(2). 在所有的docker-compose.yml文件中设置容器属于'net1'(你也可以创先一个单独的文件来专门配置网络)。
-示例如下：
+(2). 在所有的docker-compose.yml文件中设置容器属于'net1'(你也可以创先一个单独的文件来专门配置网络)。示例如下：
 ```
 services:
   mysql:
