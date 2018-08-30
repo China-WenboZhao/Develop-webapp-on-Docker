@@ -113,7 +113,7 @@ networks:
     net1:
       external: true
 ```
-- 当容器部署在不同主机上的时候，我们就需要首先配置swarn/k8s集群，而后配overlay network来使容器们通信。更多细节参考 [https://docs.docker.com/network/overlay/](https://docs.docker.com/network/overlay/) 和 [https://docs.docker.com/network/network-tutorial-overlay/](https://docs.docker.com/network/network-tutorial-overlay/)。
+- 当容器部署在不同主机上的时候，我们就需要首先配置swarm/k8s集群，而后配overlay network来使容器们通信。更多细节参考 [https://docs.docker.com/network/overlay/](https://docs.docker.com/network/overlay/) 和 [https://docs.docker.com/network/network-tutorial-overlay/](https://docs.docker.com/network/network-tutorial-overlay/)。
 ## 3. 其他
 - 关于docker的使用还有很多，比如network的使用（指定局域网和网络模式，默认桥接模式，处于一个网段），mount使用等等，小伙伴们可参照官方网站[https://docs.docker.com/config/formatting/](https://docs.docker.com/config/formatting/)。
 - 在运行docker的过程中，也出现了一些奇怪的问题，尚未搞清原因和确切解决方案，比如有时候运行时会出现：
