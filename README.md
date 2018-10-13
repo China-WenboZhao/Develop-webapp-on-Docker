@@ -3,7 +3,7 @@
 
 All examples are only deployed on our local host, which means all microservices are only running on local Docker. All access to microservices are through  http:// localhost:<port\>/\<controller name\>/...  or http://\<microservices name\>:\<port\>/\<controller name\>/... Thus, some issues are remained here and can be easily solved when using domain or public IP.
 
-This repository contains five solutions, each one is added with new functiion blocks based on the former solutions.
+This repository contains five solutions, each one is added with new function blocks based on the former solutions.
 All solutions use .net core 2.0 & EF core 2.0/2.1 as development environment.
 
 Each solution contains several projects(which are microservices from the view of Docker). **Before you run or view each solution, don't forget to browse Readme.md in it for matters and attention.**
